@@ -184,8 +184,8 @@ describe('Mongorito', function () {
 			posts.length.should.equal(1);
 			createdPost.get('_id').toString().should.equal(post.get('_id').toString());
 
-			let createdAt = Math.round(createdPost.get('created_at').getTime() / 1000);
-			let updatedAt = Math.round(createdPost.get('updated_at').getTime() / 1000);
+			let createdAt = Math.round(createdPost.get('createdAt').getTime() / 1000);
+			let updatedAt = Math.round(createdPost.get('updatedAt').getTime() / 1000);
 
 			createdAt.should.equal(timestamp);
 			updatedAt.should.equal(timestamp);
@@ -229,8 +229,8 @@ describe('Mongorito', function () {
 			updatedPost.get('_id').toString().should.equal(post.get('_id').toString());
 			updatedPost.get('title').should.equal(post.get('title'));
 
-			Math.round(updatedPost.get('created_at').getTime() / 1000).should.equal(createdAt);
-			Math.round(updatedPost.get('updated_at').getTime() / 1000).should.equal(updatedAt);
+			Math.round(updatedPost.get('createdAt').getTime() / 1000).should.equal(createdAt);
+			Math.round(updatedPost.get('updatedAt').getTime() / 1000).should.equal(updatedAt);
 		});
 
 		it('remove a document', function * () {
@@ -672,8 +672,8 @@ describe('Mongorito', function () {
 				keys.length.should.equal(4);
 				keys[0].should.equal('_id');
 				keys[1].should.equal('featured');
-				keys[2].should.equal('created_at');
-				keys[3].should.equal('updated_at');
+				keys[2].should.equal('createdAt');
+				keys[3].should.equal('updatedAt');
 			});
 
 			it('search documents using text index', function * () {
